@@ -1,0 +1,99 @@
+set encoding=utf-8
+
+" Use dark background
+set background=dark
+
+" Access colors present in 256 colorspace
+let base16colorspace=256
+
+" Color scheme
+colorscheme base16-ocean
+
+" Relative line numbers
+set relativenumber
+
+" Highlight all matches after entering search pattern
+set hlsearch
+
+" Automatically update file unless buffer has unsaved changes
+set autoread
+
+" Case insensitive pattern matching
+set ignorecase
+
+" Overrides ignorecase if pattern contains upcase
+set smartcase
+
+" When at 3 spaces and I hit >>, go to 4, not 5
+set shiftround
+
+" Keep 5 lines of context when scrolling
+set scrolloff=5
+
+" Don't add the comment prefix when I hit enter or o/O on a comment line.
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Move one displayed line at a time, default is one fysical line
+nmap k gk
+nmap j gj
+
+" Bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" Bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
+
+" Complete terms from all buffers
+set complete=.,w,b,u,t,i
+
+" Disable Ex mode
+map Q <Nop>
+
+" Allow undo history to persist after closing buffer
+if has("persistent_undo")
+  set undodir=~/.vim/_undo
+  set undofile
+end
+
+" Shortcuts
+map <C-n> :NERDTreeToggle<CR>
+map <C-t> <esc>:tabnew<CR>
+map <C-s> <esc>:w<CR>
+imap <C-s> <esc>:w<CR>
+
+" Embrace typos
+command! Q q
+command! W w
+command! Wq wq
+
+" Mustache
+au BufRead,BufNewFile *.{mustache,handlebars,hbs}{,.erb} set filetype=html syntax=mustache
+
+" JSX
+au BufRead,BufNewFile *.{js,jsx} set filetype=javascript syntax=javascript.jsx
+
+" CocoaPods
+au BufRead,BufNewFile Podfile,*.podspec set filetype=ruby
+
+" NERDTree
+let NERDTreeIgnore=['node_modules$']
+
+" Run specs using vim-dispatch
+let g:rspec_command = "Dispatch rspec {spec}"
+
+" vim-airline
+let g:airline_left_sep = ""
+let g:airline_right_sep = ""
+
+" vim-jsx
+let g:jsx_ext_required = 0
+
+" neomake
+autocmd! BufWritePost * Neomake
+
+hi neomakeErrorMsg ctermbg=0 ctermfg=1
+hi neomakeWarningMsg ctermbg=0 ctermfg=3
+
+let g:neomake_error_sign = { 'text': '>>', 'texthl': 'neomakeErrorMsg' }
+let g:neomake_warning_sign = { 'text': '>>', 'texthl': 'neomakeWarningMsg' }

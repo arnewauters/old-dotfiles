@@ -1,0 +1,31 @@
+export PATH="$HOME/.bin:$PATH"
+
+# Recommended by brew doctor
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+# Load rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - zsh --no-rehash)"
+
+# Load nvm
+export NVM_DIR=~/.nvm
+source "$(brew --prefix nvm)/nvm.sh"
+
+# Load Haskell
+export PATH="$HOME/Library/Haskell/bin:$PATH"
+
+# Enable case-insensitive autocomplete
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+# Localisation
+# https://github.com/neovim/neovim/issues/1858
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# neovim
+export NVIM_TUI_ENABLE_TRUECOLOR=1
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
+# base16
+BASE16_SHELL="$HOME/.base16/ocean.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
