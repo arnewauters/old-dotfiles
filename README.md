@@ -9,7 +9,7 @@ Use in combination with [thoughtbot/dotfiles](https://github.com/thoughtbot/dotf
 
 ```
 git clone https://github.com/thoughtbot/dotfiles.git .dotfiles
-git clone https://github.com/wouterw/dotfiles.git .dotfiles-local
+git clone https://github.com/arnewauters/dotfiles.git .dotfiles-local
 env RCRC=$HOME/.dotfiles-local/rcrc rcup
 ```
 
