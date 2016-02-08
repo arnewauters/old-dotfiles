@@ -33,5 +33,5 @@
 [pretty]
   colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
 [user]
-  name = Wouter Willaert
-  email = wouter.willaert@gmail.com
+  name = Arne Wauters
+  email = arne.wauters@gmail.com

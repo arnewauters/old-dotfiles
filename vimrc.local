@@ -7,7 +7,7 @@ set background=dark
 let base16colorspace=256
 
 " Color scheme
-colorscheme base16-ocean
+colorscheme base16-atelierheath
 
 " Relative line numbers
 set relativenumber
@@ -38,7 +38,7 @@ nmap k gk
 nmap j gj
 
 " Bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Bind \ (backward slash) to grep shortcut
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
@@ -61,6 +61,15 @@ map <C-n> :NERDTreeToggle<CR>
 map <C-t> <esc>:tabnew<CR>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
+
+" Easymotion
+" Disable default mappings
+let g:EasyMotion_do_mapping = 0 
+let g:EasyMotion_smartcase = 1
+map <Leader>s <Plug>(easymotion-s)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>w <Plug>(easymotion-bd-w)
 
 " Embrace typos
 command! Q q
@@ -97,3 +106,5 @@ hi neomakeWarningMsg ctermbg=0 ctermfg=3
 
 let g:neomake_error_sign = { 'text': '>>', 'texthl': 'neomakeErrorMsg' }
 let g:neomake_warning_sign = { 'text': '>>', 'texthl': 'neomakeWarningMsg' }
+
+let g:syntastic_ruby_checkers=['mri', 'rubocop']

@@ -8,11 +8,11 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh --no-rehash)"
 
 # Load nvm
-export NVM_DIR=~/.nvm
-source "$(brew --prefix nvm)/nvm.sh"
+# export NVM_DIR=~/.nvm
+# source "$(brew --prefix nvm)/nvm.sh"
 
 # Load Haskell
-export PATH="$HOME/Library/Haskell/bin:$PATH"
+# export PATH="$HOME/Library/Haskell/bin:$PATH"
 
 # Enable case-insensitive autocomplete
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
@@ -27,5 +27,5 @@ export NVIM_TUI_ENABLE_TRUECOLOR=1
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 # base16
-BASE16_SHELL="$HOME/.base16/ocean.dark.sh"
+BASE16_SHELL="$HOME/Documents/Box/base16-shell/base16-atelierheath.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
